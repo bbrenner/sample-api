@@ -1,13 +1,16 @@
 name: Deploy Hello World to DEVE
 
 on:
-  push:
-    branches:
-      - develop
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: false
+        default: 'DEVE'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Hello World
-        run: echo "Hello DEVE environment!"
+        run: echo "Hello ${{ github.event.inputs.environment }} environment!"
