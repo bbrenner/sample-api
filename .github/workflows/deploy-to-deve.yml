@@ -1,0 +1,13 @@
+name: Deploy Hello World to DEVE
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World
+        run: echo "Hello DEVE environment!"
